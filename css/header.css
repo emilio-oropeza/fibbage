@@ -1,0 +1,20 @@
+#fibbage_header{
+	width: 100%;
+	height: 100px;
+}
+
+#fibbage_header ul{
+	margin-right: 20px;
+  	margin-top: 25px;
+}
+
+.navbar-brand img{
+	height: 80px;
+}
+
+@media (max-width: 767px){
+	#fibbage_header ul{
+		margin-right: -15px;
+	  	margin-top: 0px;
+	}
+}

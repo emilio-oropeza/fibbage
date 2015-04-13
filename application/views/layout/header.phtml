@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title><?php echo $title; ?></title>
+		<link rel="stylesheet" type="text/css" href="/css/default.css?v=1.0" />
+		<link rel="stylesheet" type="text/css" href="/css/header.css?v=1.0" />
+		<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css?v=1.0" />
+		<script type="text/javascript" src="/js/jquery-2.1.3.min.js?v=1.0"></script>
+		<!--<script type="text/javascript" src="/js/jquery-ui.min.js?v=1.0"></script>-->
+		<script type="text/javascript" src="/js/bootstrap.min.js?v=1.0"></script>
+	</head>
+	<body>
+		<nav id="fibbage_header" class="navbar-fixed-top navbar-inverse">
+			<div class="container-fluid"></div>
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">
+						<img alt="Fibbage" src="/images/logo.jpg">
+					</a>
+				</div>
+				
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-right">
+						<li class="navbar-inverse <?php echo ($section==='inicio')?'active':'';?>">
+							<a href="#">Inicio </a>
+						</li>
+						<li class="navbar-inverse <?php echo ($section==='puntajes')?'active':'';?>"><a href="#">Puntajes</a></li>
+						<li class="navbar-inverse <?php echo ($section==='jugar')?'active':'';?>"><a href="#">Jugar</a></li>
+					</ul>
+			</div>
+		</nav>
