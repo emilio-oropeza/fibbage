@@ -13,8 +13,8 @@
 		<script type="text/javascript" src="/js/bootstrap.min.js?v=1.0"></script>
 	</head>
 	<body>
-		<nav id="fibbage_header" class="navbar-fixed-top navbar-inverse">
-			<div class="container-fluid"></div>
+		<div id="fibbage_header" class="navbar-fixed-top navbar-inverse">
+			<div class="container-fluid">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 						<span class="sr-only">Toggle navigation</span>
@@ -22,18 +22,34 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#">
+					<a class="navbar-brand" href="/">
 						<img alt="Fibbage" src="/images/logo.jpg">
 					</a>
 				</div>
-				
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
-						<li class="navbar-inverse <?php echo ($section==='inicio')?'active':'';?>">
-							<a href="#">Inicio </a>
+					<?php 	session_start(); 
+					if(@$_SESSION['acceso']){ 	?>					
+						<li class="navbar-inverse <?php echo ($section==='puntajes')?'active':'';?>">
+							<a href="/Profile"><?php echo $_SESSION['username']?></a>
 						</li>
-						<li class="navbar-inverse <?php echo ($section==='puntajes')?'active':'';?>"><a href="#">Puntajes</a></li>
-						<li class="navbar-inverse <?php echo ($section==='jugar')?'active':'';?>"><a href="#">Jugar</a></li>
+						<li class="navbar-inverse <?php echo ($section==='jugar')?'active':'';?>">
+							<a href="/Game">Jugar</a>
+						</li>
+						<li class="navbar-inverse ">
+							<a href="/session/logout">Cerrar sesion</a>
+						</li>
+					
+					<?php } else {?>
+						<li class="navbar-inverse <?php echo ($section==='login')?'active':'';?>">
+							<a href="/session">Iniciar sesion</a>
+						</li>
+					
+					<?php } 
+						
+					?>
 					</ul>
+				</div>
 			</div>
-		</nav>
+		</div>
+		<div id="main-container">

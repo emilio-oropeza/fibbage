@@ -7,3 +7,23 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
 	padding: 0;
 	vertical-align: baseline;
 }
+
+#fibbage_footer p{
+	margin-right: 20px;
+}
+
+#fibbage_header{
+	height: 100px;
+}
+
+#fibbage_header,#fibbage_footer, #main-container{
+	width: 100%;
+	display: inline-block;
+  	position: relative;
+}
+
+#main-container{
+	min-height: 320px;
+	width: 1020px;
+	margin: auto 0;
+}

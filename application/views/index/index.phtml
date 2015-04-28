@@ -1,8 +1,11 @@
-<html>
- <head>
-   <title>Hello World</title>
- </head>
- <body>
-   <?php echo $word;?>
- </body>
-</html>
+
+<h1>Bienvenido
+
+<?php 	
+@session_start(); 
+if(@$_SESSION['acceso']){ 				
+	echo $_SESSION['username'];
+}?>
+</h1>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hqNaB_lW7oI" frameborder="0" allowfullscreen></iframe>

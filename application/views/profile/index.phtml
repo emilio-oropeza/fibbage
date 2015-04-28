@@ -1,0 +1,22 @@
+<div id="profile_name"><?php echo $user->name;?></div>
+<div id="profile_juegos">
+	<table>
+		<tr>
+			<th>Score</th>
+			<th>Fecha</th>
+			<th>Ganador</th>
+		</tr>
+	<?php foreach ($user->games as $key => $game) {?>
+		<tr>
+			<td><?php echo $game['score']; ?></td>
+			<td><?php echo $game['date']; ?></td>
+			<td><?php echo $game['winner']; ?></td>
+		</tr>
+	<?php } ?>	
+	</table>
+</div>
+<style type="text/css">
+	table, th, td {
+   border: 1px solid black;
+}
+</style>

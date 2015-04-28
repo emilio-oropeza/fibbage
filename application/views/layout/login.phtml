@@ -1,0 +1,27 @@
+<form action="/session/login/" method="POST">
+	<label>User:</label>
+	<input id="input_user" type="text" name="user"><br>
+	<label>Password:</label>
+	<input id="input_pass" type="password" name="pass"><br>
+	<input id="input_send" type="button" name="login" value="Log in">
+</form>
+<?php
+	if(!empty($_GET)){
+		echo $_GET['ERROR'];
+	}
+?>
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#input_send').click(function(){
+			user = $('input#input_user').val();
+			pass = $('input#input_pass').val();
+			if(user.length > 0 && pass.length>0){
+				$('form').submit();
+			}else{
+				alert('Uno o mas campos estan vacios');
+			}
+		});
+	});
+</script>
