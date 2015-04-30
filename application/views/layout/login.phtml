@@ -1,3 +1,9 @@
+
+<?php
+session_start();
+if(!isset($_SESSION['acceso'])){
+?>
+
 <form action="/session/login/" method="POST">
 	<label>User:</label>
 	<input id="input_user" type="text" name="user"><br>
@@ -9,6 +15,9 @@
 	if(!empty($_GET)){
 		echo $_GET['ERROR'];
 	}
+}else{
+	header("location: /"); 
+}
 ?>
 
 

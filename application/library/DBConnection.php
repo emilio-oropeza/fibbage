@@ -11,19 +11,51 @@ class DBConnection{
 
 	public function login ($username, $password){
 		$user = R::findOne('users', ' username LIKE ?', [$username]);
+		$respond = array();
 		if($user === NULL){
-			return FALSE;
+			$respond["error"]="Ese usuario no existe";
 		}else{
 			if($user->password === md5($password)){
-				session_start();
-				$_SESSION['user_id']=$user->id_user;
-				$_SESSION['username']=$user->username;
-				$_SESSION['acceso']='ok';
-				return TRUE;
+				$respond['username'] = $user->username;
+				$respond['id'] = $user->id_user;
 			}else{
-				return FALSE;
+				$respond["error"]="Contraseña incorrecta";
 			}
 		}
+		return json_encode($respond);
+	}
+
+	public function setUser($username, $password){
+
+		$user = R::findOne('users', ' username LIKE ?', [$username]);
+
+		if($user === NULL){
+			$sql = 'INSERT INTO users (username, password, creation_date) 
+	    	VALUES ("'.$username.'","'.md5($password).'","'.date('Y-m-d H:i:s').'")';
+
+	    	R::exec($sql);
+	    	$id = R::getInsertID();
+
+	    	$respond["username"] = $username;
+	    	$respond["id"] = $id;
+		}else{
+			$respond["error"] = "Ese usuario ya esta en uso";
+		}
+    	return json_encode($respond);
+	}
+
+	public function startgame($players){
+		$sql = 'INSERT INTO games (date, winner) 
+	    VALUES ("'.date('Y-m-d H:i:s').'",null)';
+	    R::exec($sql);
+	    $id = R::getInsertID();
+
+	    foreach ($players as $key => $player) {
+	    	$sql = 'INSERT INTO games_has_users (id_game, id_user, score) 
+	    	VALUES ('.$id.','.$player->id.',0)';
+	    	R::exec($sql);
+	    }
+	    return $id;
 	}
 
 	public function getUserData(){

@@ -1,0 +1,49 @@
+
+
+<div id="logreg">
+	<div id="num_options">
+		<label for="num_jugadores">Numero de Jugadores</label>
+		<select id="num_jugadores">
+			<option disabled selected></option>
+		  	<option value="2">2</option>
+		  	<option value="3">3</option>
+		  	<option value="4">4</option>
+		</select>
+	</div>
+
+	<form action="/game/start" method="POST">
+		<div id="inputs_logreg">
+			<table>
+				<tr>
+					<th>Registrarse</th>
+					<th>Iniciar sesion</th>
+					<th>Usuario</th>
+					<th>Contraseña</th>
+					<th></th>
+				</tr>
+				
+			</table>
+			<input id="send_button" type="button" value="Iniciar">
+		</div>
+	</form>	
+</div>
+
+<script type="text/javascript" src="/js/jquery.init_game.js"></script>
+<script type="text/javascript">
+	<!--
+	<?php
+		@session_start();
+	?>
+	$(document).ready(function(){
+		$("#inputs_logreg").hide();
+		$("#num_jugadores").change(function(){
+			$("#logreg").logreg({
+				"num":$(this).val(),
+				"user_logged":"<?php echo (isset($_SESSION['acceso'])? $_SESSION['username']:'')?>",
+				"user_logged_id":"<?php echo (isset($_SESSION['acceso'])? $_SESSION['user_id']:'')?>"
+			});
+			$("#num_options").hide();
+		});	
+	});
+	-->
+</script>

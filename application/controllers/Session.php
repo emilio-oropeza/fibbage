@@ -24,14 +24,44 @@ class SessionController extends Yaf_Controller_Abstract {
 		$tpl->section = "inicio";
 
 		$db = new DBConnection();
-		$isConnected = $db->login($username, $password);
-		if($isConnected){
-			header("location: /"); 
-		}else{
-			echo md5($_POST['pass']);
-			$msj =  '?ERROR=Usuario%20o%20contraseña%20incorrectos';
+		$respond = $db->login($username, $password);
+		$r = json_decode($respond);
+		if(array_key_exists("error", $r)){
+			
+			$msj =  '?ERROR='.$r->error;
 			header("location: /session".$msj);
+		}else{
+			session_start();
+			$_SESSION['user_id']=$r->id;
+			$_SESSION['username']=$r->username;
+			$_SESSION['acceso']='ok';
+			header("location: /"); 
 		}
+
+
+		Yaf_Dispatcher::getInstance()->disableView();
+	}
+
+	public function logingameAction(){
+		$username = $_POST['user'];
+		$password = $_POST['pass'];
+
+		$db = new DBConnection();
+		$respond = $db->login($username, $password);
+
+		print_r($respond);
+
+		Yaf_Dispatcher::getInstance()->disableView();
+	}
+
+	public function registergameAction(){
+		$username = $_POST['user'];
+		$password = $_POST['pass'];
+
+		$db = new DBConnection();
+		$respond = $db->setUser($username, $password);
+
+		print_r($respond);
 
 
 		Yaf_Dispatcher::getInstance()->disableView();
