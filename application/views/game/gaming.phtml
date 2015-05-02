@@ -1,26 +1,47 @@
 <div id="fibbage_game">
-	<div id="read_game" class="screen_game">
-		<div id="read_player">
-			<span></span> lee cuidadosamente la siguiente pregunta:
+	<div id="game_container">
+		<div id="read_game" class="screen_game">
+			<div id="read_player">
+				<span></span> lee cuidadosamente la siguiente pregunta:
+			</div>
+			<div id="read_question">
+				
+			</div>
+			<button id="read_btn">Siguiente</button>
 		</div>
-		<div id="read_question">
-			
+		<div id="answer_game" class="screen_game">
+			<div id="answer_players">
+				<span id="answer_player"></span> dale una respuesta confusa a 
+				<span id="answer_playerturn"></span>
+			</div>
+			<div id="answer_input">
+				<input type="password" value="">
+			</div>
+			<div id="answer_button"></div>
 		</div>
-		<button id="read_btn">Siguiente</button>
+		<div id="choose_game" class="screen_game">
+			<div id="choose_title">Elige la respuesta correcta</div>
+			<div id="answers2choose">
+				
+			</div>
+
+		</div>
+		<div id="show_game" class="screen_game">
+			<div id="correct_answer">
+				La respuesta correcta es: <span></span>
+			</div>
+			<div id="player_win">
+				El jugador <span></span> 
+			</div>
+			<div id="show_btn">
+				<button id="show_next">Siguiente</button>
+			</div>
+		</div>
+		<div id="result_game" class="screen_game"></div>
 	</div>
-	<div id="answer_game" class="screen_game">
-		<div id="answer_player">
-			<span id="answer_player"></span> dale una respuesta confusa a 
-			<span id="answer_playerturn"></span>
-		</div>
-		<div id="answer_input">
-			<input type="password" value="">
-		</div>
-		<button id="answer_btn">Siguiente</button>
+	<div id="fibbage_score">
+		
 	</div>
-	<div id="choose_game" class="screen_game"></div>
-	<div id="show_game" class="screen_game"></div>
-	<div id="result_game" class="screen_game"></div>
 </div>
 
 <script type="text/javascript" src="/js/jquery.fibbage.js"></script>
@@ -28,7 +49,6 @@
 	<!--
 	$(document).ready(function(){
 		$("#fibbage_game").fibbage({
-			"questions":<?php echo json_encode($questions)?>,
 			"players":<?php echo json_encode($players)?>
 		});
 	});

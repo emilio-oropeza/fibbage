@@ -46,7 +46,7 @@ class DBConnection{
 
 	public function startgame($players){
 		$sql = 'INSERT INTO games (date, winner) 
-	    VALUES ("'.date('Y-m-d H:i:s').'",null)';
+	    VALUES ("'.date('Y-m-d H:i:s').'",12)';
 	    R::exec($sql);
 	    $id = R::getInsertID();
 
@@ -73,6 +73,23 @@ class DBConnection{
 		$rows = R::getAll( $sql );
 		$tpl->user->games = $rows;
 		return $tpl;
+	}
+
+	public function saveGame($obj){
+		foreach ($obj->players as $key => $player) {
+			$sql = "UPDATE games_has_users
+					SET score = ".$player->score."
+					WHERE id_game = ".$obj->game_id." AND
+					id_user = ".$player->id;
+			$x = R::exec($sql);
+			print_r($x);
+		}
+		$sql = "UPDATE games
+				SET winner = ".$obj->winner."
+				WHERE id_game = ".$obj->game_id;
+		$y = R::exec($sql);
+		print_r($y);
+
 	}
 
 }

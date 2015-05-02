@@ -26,7 +26,8 @@
 						componentObj.methods.addinput(row, i);
 					}
 					if(options.user_logged !== ''){
-						componentObj.methods.render(options.user_logged, 0);
+						console.log(options.user_logged);
+						componentObj.methods.render(options.user_logged, options.user_logged_id, 0);
 					}
 					$("#send_button").click(function(){
 						var lleno = true;
@@ -80,7 +81,7 @@
 				},
 				addinput:function(row, i){					
 					$('<td><input class="logreg_in_user" type="radio" value="0" name="logreg'+i+'"></td>').appendTo(row);
-					$('<td><input class="logreg_in_user" type="radio" value="1" name="logreg'+i+'"></td>').appendTo(row);
+					$('<td><input class="logreg_in_user" type="radio" value="1" name="logreg'+i+'" checked="checked"></td>').appendTo(row);
 					$('<td><input class="logreg_in_user" type="text" name="user'+i+'"></td>').appendTo(row);
 					$('<td><input class="logreg_in_pass" type="password" name="pass'+i+'"></td>').appendTo(row);
 					$('<td><input id="btn'+i+'" type="button" value="Enviar" disable>').appendTo(row);	
