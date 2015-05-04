@@ -1,22 +1,24 @@
-<div id="profile_name"><?php echo $user->name;?></div>
+<link rel="stylesheet" type="text/css" href="/css/profile.css?v=0" />
+
+<div id="profile_name">Estas son tus partidas, <?php echo $user->name;?>:</div>
 <div id="profile_juegos">
 	<table>
-		<tr>
+		<tr id="fibbage_title">
 			<th>Score</th>
-			<th>Fecha</th>
+			<th class="datetime">Fecha</th>
+			<th class="datetime">Hora</th>
 			<th>Ganador</th>
 		</tr>
 	<?php foreach ($user->games as $key => $game) {?>
-		<tr>
+		<tr class="fibbage_<?php echo ($key%2==0)?'par':'impar'; ?>">
 			<td><?php echo $game['score']; ?></td>
-			<td><?php echo $game['date']; ?></td>
+			<?php
+				$datetime = explode(" ", $game['date']);
+			?>
+			<td class="datetime"><?php echo $datetime[0]; ?></td>
+			<td class="datetime"><?php echo $datetime[1]; ?></td>
 			<td><?php echo $game['winner']; ?></td>
 		</tr>
 	<?php } ?>	
 	</table>
 </div>
-<style type="text/css">
-	table, th, td {
-   border: 1px solid black;
-}
-</style>

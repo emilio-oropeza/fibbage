@@ -86,7 +86,7 @@
 				getAnswer:function(){
 					$("#answer_button").html("");
 					$(componentObj.screen_answer).show();
-					$('<button id="answer_btn">Siguiente</button>').appendTo("#answer_button");
+					$('<button id="answer_btn" class="btn">Siguiente</button>').appendTo("#answer_button");
 					$("#answer_input input").val("");
 					$("#answer_player").text(options.players[componentObj.indexAns].name);
 					$("#answer_playerturn").text(options.players[componentObj.index].name);
@@ -140,7 +140,7 @@
 				show_correct:function(index_choose){
 					var res = "";
 					$('#show_btn').html("");
-					var btn = $('<button id="show_next">Siguiente</button>').appendTo('#show_btn');
+					var btn = $('<button id="show_next" class="btn">Siguiente</button>').appendTo('#show_btn');
 					if(index_choose < options.players.length){
 						componentObj.players_score[index_choose] += 100;
 						componentObj.methods.score_update(index_choose);
@@ -178,8 +178,8 @@
 						var str = options.players[i].name+" obtuvo: "+componentObj.players_score[i]+" pts";
 						$("<div id='final_"+i+"' class='finaldiv'>"+str+"</div>").appendTo(componentObj.screen_result);
 					};
-					$("<div id='winner'>El ganador es: "+options.players[p].name+"</div>").appendTo(componentObj.screen_result);
-					var end = $("<button>Finalizar</button>").appendTo(componentObj.screen_result);
+					$("<div id='winner' class='player'>El ganador es: "+options.players[p].name+"</div>").appendTo(componentObj.screen_result);
+					var end = $("<button class='btn'>Finalizar</button>").appendTo(componentObj.screen_result);
 					$(end).click(function(){
 						var send = componentObj.methods.getFinalJson();
 						$.ajax({
@@ -188,7 +188,7 @@
 							data: {json:send},
 							dataType: 'json'
 						}).done(function( json ) {
-							console.log(json);
+							window.location.replace("/");
 						});
 					});
 

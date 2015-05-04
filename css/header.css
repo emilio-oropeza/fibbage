@@ -1,10 +1,9 @@
 #fibbage_header ul{
 	margin-right: 20px;
-  	margin-top: 25px;
 }
 
 .navbar-brand img{
-	height: 70px;
+	height: 25px;
 }
 
 @media (max-width: 767px){

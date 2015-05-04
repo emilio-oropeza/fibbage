@@ -1,0 +1,14 @@
+div#session_form{
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	font-size: 25px;
+}
+div#session_form div{
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	margin: auto;
+	display: table;
+
+}

@@ -1,26 +1,28 @@
+<link rel="stylesheet" type="text/css" href="/css/gamming.css?v=0" />
+
 <div id="fibbage_game">
 	<div id="game_container">
 		<div id="read_game" class="screen_game">
 			<div id="read_player">
-				<span></span> lee cuidadosamente la siguiente pregunta:
+				<span class="player"></span><br> lee cuidadosamente la siguiente pregunta:
 			</div>
 			<div id="read_question">
 				
 			</div>
-			<button id="read_btn">Siguiente</button>
+			<button id="read_btn" class="btn">Siguiente</button>
 		</div>
 		<div id="answer_game" class="screen_game">
 			<div id="answer_players">
-				<span id="answer_player"></span> dale una respuesta confusa a 
+				<span id="answer_player" class="player"></span><br> dale una respuesta confusa a 
 				<span id="answer_playerturn"></span>
 			</div>
 			<div id="answer_input">
-				<input type="password" value="">
+				<input type="password" value="" style="color:#000">
 			</div>
 			<div id="answer_button"></div>
 		</div>
 		<div id="choose_game" class="screen_game">
-			<div id="choose_title">Elige la respuesta correcta</div>
+			<div id="choose_title" style="font-size: 30px;">Elige la respuesta correcta</div>
 			<div id="answers2choose">
 				
 			</div>
@@ -30,11 +32,11 @@
 			<div id="correct_answer">
 				La respuesta correcta es: <span></span>
 			</div>
-			<div id="player_win">
+			<div id="player_win" class="player">
 				El jugador <span></span> 
 			</div>
 			<div id="show_btn">
-				<button id="show_next">Siguiente</button>
+				<button id="show_next" class="btn">Siguiente</button>
 			</div>
 		</div>
 		<div id="result_game" class="screen_game"></div>

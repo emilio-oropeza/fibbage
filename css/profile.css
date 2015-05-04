@@ -1,0 +1,40 @@
+#main-container{
+	height: 100vh;
+}
+#fibbage_title{
+	background-color: #5B1112;
+	color: #FFF;
+}
+
+.fibbage_impar{
+	background-color: #FFF;
+	color:#5B1112;
+}
+.fibbage_par{
+	background-color: rgb(249, 247, 194);
+	color: #5B1112;
+}
+#profile_juegos table{
+	width: 100%;
+}
+
+#profile_juegos td, #profile_juegos th{
+	font-size: 17px;
+    text-align: center;
+}
+#profile_juegos{
+	width: 80%;
+	margin: auto;
+}
+#profile_name{
+	font-size: 40px;
+	margin: 20px;
+}
+@media(max-width: 420px){
+	.datetime{
+		display: none;
+	}
+	#profile_name{
+		font-size: 30px;
+	}
+}

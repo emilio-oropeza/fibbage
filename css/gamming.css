@@ -1,0 +1,53 @@
+#main-container {
+    height: 100vh;
+    position: relative;
+}
+#fibbage_game{
+    width: 500px;
+    margin: auto;
+    display: table;
+    position: relative;
+    top: 50%;
+    transform: translateY(50%);
+    height: 250px;
+    background-color: rgb(91, 17, 18);
+    color: rgb(255, 255, 255);
+    -webkit-transform: translateY(50%);
+    -ms-transform: translateY(50%);
+}
+#game_container{
+    display: inline-block;
+    height: 250px;
+    width: 400px;
+    float: left;
+    padding-left: 20px;
+}
+.player{
+	font-size: 40px;
+	text-align: center;
+	width: 100%;
+}
+#read_question{
+    font-size: 30px;
+}
+.btn {
+    color: rgb(91, 17, 18);
+}
+.false_ans {
+    border: 1px solid;
+    width: 160px;
+    height: 50px;
+    display: inline-block;
+    font-size: 19px;
+    float: left;
+    margin: 10px;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+    color: rgb(91, 17, 18);
+    text-align: center;
+    line-height: 1;
+}
+.false_ans:hover {
+    background-color: rgb(91, 17, 18);
+    color: rgb(255, 255, 255);
+}

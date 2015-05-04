@@ -1,16 +1,20 @@
-
+<link rel="stylesheet" type="text/css" href="/css/session.css?v=0" />
 <?php
 session_start();
 if(!isset($_SESSION['acceso'])){
 ?>
 
-<form action="/session/login/" method="POST">
-	<label>User:</label>
-	<input id="input_user" type="text" name="user"><br>
-	<label>Password:</label>
-	<input id="input_pass" type="password" name="pass"><br>
-	<input id="input_send" type="button" name="login" value="Log in">
-</form>
+<div id="session_form">
+	<div>
+		<form action="/session/login/" method="POST">
+			<label>User:</label><br>
+			<input id="input_user" type="text" name="user"><br>
+			<label>Password:</label><br>
+			<input id="input_pass" type="password" name="pass"><br>
+			<input id="input_send" type="button" name="login" value="Log in"><br>
+		</form>
+	</div>
+</div>
 <?php
 	if(!empty($_GET)){
 		echo $_GET['ERROR'];

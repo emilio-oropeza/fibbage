@@ -79,20 +79,31 @@
 						}
 					});
 				},
-				addinput:function(row, i){					
-					$('<td><input class="logreg_in_user" type="radio" value="0" name="logreg'+i+'"></td>').appendTo(row);
-					$('<td><input class="logreg_in_user" type="radio" value="1" name="logreg'+i+'" checked="checked"></td>').appendTo(row);
+				addinput:function(row, i){
+					var td = $('<td></td>').appendTo(row);
+					var checkbox = $('<input class="logreg_in_user" type="checkbox" name="logreg'+i+'">').appendTo(td);
 					$('<td><input class="logreg_in_user" type="text" name="user'+i+'"></td>').appendTo(row);
 					$('<td><input class="logreg_in_pass" type="password" name="pass'+i+'"></td>').appendTo(row);
 					$('<td><input id="btn'+i+'" type="button" value="Enviar" disable>').appendTo(row);	
 					$('<label id="error'+i+'" class="errors"></label></td>').appendTo(row);	
 					var btn_id = "#btn"+i;
 
+					$(checkbox).bootstrapSwitch({
+						state:'true',
+						size:"small",
+						onText:"Logearse",
+						offText:"Registrarse",
+						offColor:"success",
+						indeterminate:"true",
+						label:"Elige"
+					});
+
 					$(btn_id).click(function(){
 						var str = $(this).attr('id');
 						var id = str.slice(-1);
-						var radio_name = 'input[name=logreg'+id+']:checked';
-						var type = $(radio_name).val();
+						var radio_name = 'input[name=logreg'+id+']';
+						var type = $(radio_name).is(':checked');
+						console.log(type);
 						var user_txt = 'input[name=user'+id+']';
 						var pass_txt = 'input[name=pass'+id+']';
 						var user = $(user_txt).val();
@@ -118,12 +129,14 @@
 					var arr = {name:username, id:user_id};
 					var json = JSON.stringify(arr);
 					var row = "#player"+id;
+					$(row).addClass("user_ready");
 					$(row).html("");
-					$("<td colspan='4'><label>"+username+"</label></td>").appendTo(row);
+					$("<td colspan='3'><label>"+username+"</label></td>").appendTo(row);
 					var span = $("<td><span>X</span>").appendTo(row);
 					$("<input type='hidden' name='players[]' value='"+json+"'>").appendTo(row);
 
 					$(span).click(function(){
+						$(row).removeClass("user_ready");
 						$(row).html("");
 						componentObj.methods.addinput(row, id);
 					});

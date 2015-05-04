@@ -1,0 +1,53 @@
+body{
+    background-color: rgb(91, 17, 18) !important;
+}
+
+#main-container{
+	width: 100%;
+}
+
+.index_sections{
+	height: 100vh;
+}
+
+#fibbage_logo{
+	background: url("/images/bg-red.jpg");
+	min-height: 292px;
+}
+
+#fibbage_video{
+	background-color: #F9F7C2;
+}
+
+#fibbage_video div{
+	width: 560px;
+}
+
+#fibbage_logo div img, #fibbage_video div iframe{
+	width: 100%;
+	height: auto;
+}
+#fibbage_video div iframe{
+	height: 350px;
+	width: 100%;
+}
+
+#fibbage_logo div, #fibbage_video div{
+	position: relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+	margin: auto;
+	display: table;
+}
+
+@media(max-width: 600px){
+	#fibbage_video div {
+		width: 85%;
+		min-height: 300px;
+	}
+	#fibbage_video div iframe {
+	    height: 260px;
+	}
+}
