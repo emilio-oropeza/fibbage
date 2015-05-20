@@ -42,17 +42,9 @@
 		<div id="result_game" class="screen_game"></div>
 	</div>
 	<div id="fibbage_score">
-		
+		<input type="hidden" value="" id="question2">
 	</div>
 </div>
+<script type="text/javascript" src="/js/websocket.js"></script>
+<script type="text/javascript" src="/js/fibbage.js"></script>
 
-<script type="text/javascript" src="/js/jquery.fibbage.js"></script>
-<script type="text/javascript">
-	<!--
-	$(document).ready(function(){
-		$("#fibbage_game").fibbage({
-			"players":<?php echo json_encode($players)?>
-		});
-	});
-	-->
-</script>
